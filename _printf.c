@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdarg.h>
-
 /**
  * _printf - Produces output according to a format
  * @format: format to produce
@@ -9,10 +8,10 @@
 int _printf(const char *format, ...)
 {
 	char c, *s;
-	int count = 0;
+	int i, count = 0;
 	va_list args;
-	va_start(args, format);
 
+	va_start(args, format);
 	while (*format)
 	{
 		if (*format == '%')
@@ -39,9 +38,16 @@ int _printf(const char *format, ...)
 					count++;
 				}
 			}
+			else if (*format == 'i' || *format == 'd')
+			{
+				i = va_arg(args, int);
+				print_number(i);
+				count++;
+			}
 			else
 			{
 				_putchar('%');
+				_putchar(*format);
 				count++;
 			}
 		}
