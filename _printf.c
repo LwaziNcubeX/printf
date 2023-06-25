@@ -1,7 +1,5 @@
 #include "main.h"
 #include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
  * _printf - Produces output according to a format
@@ -10,58 +8,54 @@
  */
 int _printf(const char *format, ...)
 {
-	double d;
-	int i;
-        int c;
-        char *s;
+	char c;
+	char *s;
+	int count = 0;
 	va_list args;
 	va_start(args, format);
 
-	while (*format != '\0')
-
+	while (*format)
 	{
-
-		if (*format == 'c')
+		if (*format == '%')
 		{
-			c = va_arg(args, int);
-			_putchar(c);
-			
-		}
-
-		else if (*format == 's')
-		{
-			s = va_arg(args, char*);
-			_putchar('s');
-			s++;
-			
-		}
-		else if (*format == i)
-		{
-			i = va_arg(args, int);
-			_putchar(i);
-			
-		}
-		else if (*format == d)
-		{
-			d = va_arg(args, double);
-			_putchar(d);
-			
-		}
-
-		else if (*format == '%')
-		{
-			_putchar('%');
-			
+			format++;
+			if (*format == '%')
+			{
+				_putchar('%');
+                                count++;
+			}
+			else if (*format == 'c')
+			{
+				c = va_arg(args, int);
+				_putchar(c);
+				count++;
+			}
+			else if (*format == 's')
+			{
+				s = va_arg(args, char *);
+				while (*s)
+				{
+					_putchar(*s);
+					s++;
+					count++;
+				}
+			}
+			/*else if (*format == 'd' || *format == 'i')*/
+			else
+			{
+				_putchar('%');
+				count++;
+			}
 		}
 		else
 		{
 			_putchar(*format);
-		
+			count++;
 		}
 		format++;
-
 	}
+
 	va_end(args);
 
-	return (0);
+        return (count);
 }
