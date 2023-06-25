@@ -3,6 +3,5 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int _printf_numbers(const char *format, ...);
-
+void print_number(int num);
 #endif /* MAIN_H */
