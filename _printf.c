@@ -24,13 +24,9 @@ int _printf(const char *format, ...)
 			else if (*format == 'c')
 				print_char(args);
 			else if (*format == 's')
-			{
 				print_str(args);
-			}
 			else if (*format == 'i' || *format == 'd')
-			{
 				print_nums(args);
-			}
 			else if (*format == 'b')
 				print_bin(args);
 			else

@@ -8,13 +8,12 @@ void print_binary(unsigned int num)
 {
 	int i, byte;
 
-	byte = sizeof(num) * 8;
+	byte = sizeof(num) * 1.8;
 
 	for (i = byte - 1; i >= 0; i--)
-       	{
-       	char bit = (num & (1 << i)) ? '1' : '0';
-	_putchar(bit);
+	{
+		char bit = (num & (1 << i)) ? '1' : '0';
+
+		_putchar(bit);
 	}
-
-
 }

@@ -54,7 +54,10 @@ void print_x(int count)
 	_putchar('%');
 	count++;
 }
-
+/**
+ * print_bin - Prints unsigned binary
+ * @args: the arguments
+ */
 void print_bin(va_list args)
 {
 	unsigned int i, count = 0;
@@ -63,13 +66,3 @@ void print_bin(va_list args)
 	print_binary(i);
 	count++;
 }
-
-
-
-
-
-
-
-
-
-
