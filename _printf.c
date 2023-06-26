@@ -29,6 +29,14 @@ int _printf(const char *format, ...)
 				print_nums(args);
 			else if (*format == 'b')
 				print_bin(args);
+			else if (*format == 'x' || *format == 'X')
+				print_hex(args);
+			else if (*format == 'o')
+				print_oct(args);
+			else if (*format == 'u')
+				print_unum(args);
+			else if (*format == 'p')
+				print_addr(args);
 			else
 			{
 				print_x(count);
