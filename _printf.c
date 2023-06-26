@@ -31,6 +31,8 @@ int _printf(const char *format, ...)
 			{
 				print_nums(args);
 			}
+			else if (*format == 'b')
+				print_bin(args);
 			else
 			{
 				print_x(count);

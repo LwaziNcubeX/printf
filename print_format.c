@@ -54,3 +54,22 @@ void print_x(int count)
 	_putchar('%');
 	count++;
 }
+
+void print_bin(va_list args)
+{
+	unsigned int i, count = 0;
+
+	i = va_arg(args, unsigned int);
+	print_binary(i);
+	count++;
+}
+
+
+
+
+
+
+
+
+
+
