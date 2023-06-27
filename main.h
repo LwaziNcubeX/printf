@@ -20,4 +20,5 @@ void print_unsigned_num(unsigned int num);
 void print_unum(va_list args);
 void print_addr(va_list args);
 void print_address(void *p);
+int print_args(char specif, va_list args);
 #endif /* MAIN_H */

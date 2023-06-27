@@ -1,8 +1,11 @@
 #include "main.h"
 #include <stdarg.h>
+
+
 /**
  * _printf - Produces output according to a format
  * @format: format to produce
+ *
  * Return: the number of characters printed
  */
 int _printf(const char *format, ...)
@@ -21,26 +24,9 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				count++;
 			}
-			else if (*format == 'c')
-				print_char(args);
-			else if (*format == 's')
-				print_str(args);
-			else if (*format == 'i' || *format == 'd')
-				print_nums(args);
-			else if (*format == 'b')
-				print_bin(args);
-			else if (*format == 'x' || *format == 'X')
-				print_hex(args);
-			else if (*format == 'o')
-				print_oct(args);
-			else if (*format == 'u')
-				print_unum(args);
-			else if (*format == 'p')
-				print_addr(args);
 			else
 			{
-				print_x(count);
-				_putchar(*format);
+				count += print_args(*format, args);
 			}
 		}
 		else
@@ -53,3 +39,5 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+
+
