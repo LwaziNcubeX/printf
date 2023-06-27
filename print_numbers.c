@@ -44,8 +44,16 @@ void print_hexidecimal(unsigned int num)
 	}
 	else
 	{
-		_putchar('A' + rem - 10);
+		if (rem <= 15)
+		{
+			_putchar('A' + rem - 10);
+		}
+		else
+		{
+			_putchar('a' + rem);
+		}
 	}
+	
 }
 
 /**
@@ -77,25 +85,41 @@ void print_unsigned_num(unsigned int num)
 /**
  * print_address - prints an address
  * @p: pointer to address
+ *
  */
+
 void print_address(void *p)
 {
 	unsigned long x = (unsigned long)p;
-	int i;
-	unsigned long div = 16, rem;
+	int i = 0, rem, j;
+	char hex[100];
 
+	if (x == 0)
+	{
+		_putchar('0');
+		return;
+	}
+
+
+	while (x > 0)
+	{
+		rem = x % 16;
+		if (rem < 10)
+		{
+			hex[i] = rem + '0';
+		}
+		else
+		{
+			hex[i] = rem - 10 + 'a';
+		}
+		x /= 16;
+		i++;
+	}
 	_putchar('0');
 	_putchar('x');
 
-	for (i = (sizeof(unsigned long) * 1.5) - 1; i >= 0; i--)
+	for (j = i - 1; j >= 0; j--)
 	{
-		rem = x % div;
-		x /= div;
-
-		if (rem < 10)
-			_putchar(rem + '0');
-		else
-			_putchar(rem - 10 + 'a');
+		_putchar(hex[j]);
 	}
 }
-
