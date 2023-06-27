@@ -24,6 +24,4 @@ void print_addr(va_list args);
 void print_address(void *p);
 int print_args(char specif, va_list args);
 int print_args2(char specif, va_list args);
-void print_strng(va_list args);
-void print_string(unsigned char s);
 #endif /* MAIN_H */

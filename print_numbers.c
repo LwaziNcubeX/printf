@@ -29,7 +29,9 @@ void print_number(int num)
 /**
  * print_hexidecimal - prints a hexidecimal number
  * @num: number to print
+ * @is_lowercase: lowercases
  */
+
 void print_hexidecimal(unsigned int num, bool is_lowercase)
 {
 	int rem = num % 16;
@@ -58,6 +60,7 @@ void print_hexidecimal(unsigned int num, bool is_lowercase)
  * print_octal - prints an octal number
  * @num: number to print
  */
+
 void print_octal(unsigned int num)
 {
 	if (num / 8)
@@ -71,6 +74,7 @@ void print_octal(unsigned int num)
  * print_unsigned_num - prints an unsigned number
  * @num: number to print
  */
+
 void print_unsigned_num(unsigned int num)
 {
 	if (num / 10)
