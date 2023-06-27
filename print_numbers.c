@@ -30,30 +30,28 @@ void print_number(int num)
  * print_hexidecimal - prints a hexidecimal number
  * @num: number to print
  */
-void print_hexidecimal(unsigned int num)
+void print_hexidecimal(unsigned int num, bool is_lowercase)
 {
 	int rem = num % 16;
 
+	if (num == 0)
+	{
+		_putchar('0');
+		return;
+	}
+
 	if (num / 16)
 	{
-		print_hexidecimal(num / 16);
+		print_hexidecimal(num / 16, is_lowercase);
 	}
-	if (rem < 10)
+	if (rem >= 10 && rem <= 15)
 	{
-		_putchar('0' + rem);
+		_putchar((is_lowercase ? 'a' : 'A') + (rem - 10));
 	}
 	else
 	{
-		if (rem <= 15)
-		{
-			_putchar('A' + rem - 10);
-		}
-		else
-		{
-			_putchar('a' + rem);
-		}
+		_putchar('0' + rem);
 	}
-	
 }
 
 /**
@@ -80,6 +78,11 @@ void print_unsigned_num(unsigned int num)
 		print_unsigned_num(num / 10);
 	}
 	_putchar('0' + num % 10);
+	if (num == 0)
+	{
+		_putchar('0');
+		return;
+	}
 }
 
 /**

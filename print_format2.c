@@ -10,7 +10,19 @@ void print_hex(va_list args)
 	unsigned int i;
 
 	i = va_arg(args, unsigned int);
-	print_hexidecimal(i);
+	print_hexidecimal(i, true);
+}
+
+/**
+ * print_hdec - prints a hexidecimal
+ * @args: arguments
+ */
+void print_hdec(va_list args)
+{
+	unsigned int i;
+
+	i = va_arg(args, unsigned int);
+	print_hexidecimal(i, false);
 }
 
 /**
