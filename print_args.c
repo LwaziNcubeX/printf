@@ -15,10 +15,10 @@ int print_args(char specif, va_list args)
 	switch (specif)
 	{
 		case 'c':
-			print_char(args);
+			count += _putchar(va_arg(args, int));
 			break;
 		case 's':
-			print_str(args);
+			count += print_str(args);
 			break;
 		case 'i':
 		case 'd':
@@ -49,3 +49,4 @@ int print_args(char specif, va_list args)
 	}
 	return (count);
 }
+

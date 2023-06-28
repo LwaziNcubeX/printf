@@ -1,32 +1,30 @@
 #include "main.h"
 #include <stdarg.h>
-
-/**
- * print_char - prints characters
- * @args: arguments
- */
-void print_char(va_list args)
-{
-	char c;
-
-	c = va_arg(args, int);
-	_putchar(c);
-}
+#include <stdlib.h>
 
 /**
  * print_str - prints strings
  * @args: arguments
+ *
+ * Return: length
  */
-void print_str(va_list args)
+int print_str(va_list args)
 {
+	int len = 0;
 	char *s;
 
 	s = va_arg(args, char *);
+	if (s == NULL)
+	{
+		s = "(null)";
+	}
 	while (*s)
 	{
 		_putchar(*s);
+		len++;
 		s++;
 	}
+	return (len);
 }
 
 /**
@@ -35,11 +33,11 @@ void print_str(va_list args)
  */
 void print_nums(va_list args)
 {
-	int i;
+	int i, count = 0;
 
 	i = va_arg(args, int);
 	print_number(i);
-
+	count++;
 }
 
 /**
@@ -62,7 +60,9 @@ void print_x(int count)
 void print_bin(va_list args)
 {
 	unsigned int i;
+	int count = 0;
 
 	i = va_arg(args, unsigned int);
 	print_binary(i);
+	count++;
 }
