@@ -27,18 +27,6 @@ int print_str(va_list args)
 	return (len);
 }
 
-/**
- * print_nums - prints integer
- * @args: arguments
- */
-void print_nums(va_list args)
-{
-	int i, count = 0;
-
-	i = va_arg(args, int);
-	print_number(i);
-	count++;
-}
 
 /**
  * print_x - prints %

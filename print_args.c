@@ -22,7 +22,7 @@ int print_args(char specif, va_list args)
 			break;
 		case 'i':
 		case 'd':
-			print_nums(args);
+			count += print_number(va_arg(args, int));
 			break;
 		case 'b':
 			print_bin(args);

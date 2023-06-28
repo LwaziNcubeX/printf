@@ -5,27 +5,30 @@
 /**
  * print_number - Prints a number
  * @num: number to print
+ *
+ * Return: count
  */
 
-void print_number(int num)
+int print_number(int num)
 {
-	int abs_value;
+	int count = 0;
 
 	if (num < 0)
 	{
 		_putchar('-');
-		abs_value = -num;
+		count++;
+		num = -num;
 	}
-	else
-	{
-		abs_value = num;
-	}
-	if (abs_value / 10)
-	{
-		print_number(abs_value / 10);
-	}
-	_putchar(abs_value % 10 + '0');
+
+	if (num / 10)
+		count += print_number(num / 10);
+
+	_putchar('0' + (num % 10));
+	count++;
+
+	return (count);
 }
+
 /**
  * print_hexidecimal - prints a hexidecimal number
  * @num: number to print
